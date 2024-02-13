@@ -43,3 +43,46 @@ header {
     display: block; 
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+/* About Us section styles */
+.about-us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ddd;
+    padding: 20px;
+    margin: 20px;
+}
+
+/* Shop Now button moved out of About Us */
+.button-shop-now {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 20px auto; /* Center horizontally and add margin above and below */
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+/* Adjustments for Customer Review section if needed */
+.customer-reviews {
+    background-color: #ddd;
+    padding: 20px;
+    margin: 20px;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
