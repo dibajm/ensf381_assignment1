@@ -10,6 +10,8 @@ header {
     background-color: #333;
     padding: 20px;
     display: flex;
+    color: white;
+
     justify-content: space-between;
     align-items: center;
 }
@@ -64,12 +66,13 @@ main {
     border: none;
     color: white;
     padding: 10px 20px;
-    text-align: center;
+    text-align: left;
     text-decoration: none;
     display: inline-block;
     margin: 20px auto; 
     cursor: pointer;
     border-radius: 10px;
+    
 }
 
 /* Adjustments for Customer Review section if needed */
