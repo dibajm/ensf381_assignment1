@@ -89,3 +89,68 @@ footer {
     text-align: center;
     color: white;
 }
+
+/* Main styling for Product List Section */
+.product-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #ddd;
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  /* Product Styling */
+  .product {
+    width: calc(50% - 40px); /* Subtracting the total margin from 50% */
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  .product img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .product h3 {
+    margin-top: 10px; /* Adding space above the product title */
+  }
+  
+  .product p {
+    color: #007BFF;
+    font-weight: bold;
+  }
+  
+  /* Hover effect for product cards */
+  .product:hover {
+    background-color: #ffffff;
+  }
+  
+  /* "Add to Cart" Button Styling */
+  button {
+    background-color: #4CAF50;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    color: white;
+  }
+  
+  /* Hover effect for buttons */
+  button:hover {
+    background-color: #45A049;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .product {
+      width: 100%; /* Each product takes full width on smaller screens */
+    }
+  }
+  
