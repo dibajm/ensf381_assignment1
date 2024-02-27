@@ -3,7 +3,7 @@
 Name : login.html
 Assignment : ENSF 381 Assignment 1
 Author(s) : Amielle El Makhzoumi (UCID: 30175286) and Diba Jamali (UCID: 30143026)
-Submission : February 5th, 2024
+Submission : February 26th, 2024
 =========================================================
 -->
 <!DOCTYPE html>
@@ -29,24 +29,27 @@ Submission : February 5th, 2024
         </ul>
     </div>
 
-    <main>
-        <section class="login-form">
-            <form action="#" method="post">
-                <div class="form-group">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
-                    <button type="submit" class="loginbutton">Login</button>
-                </div>
-                <div class="signup-link">
-                    <p>Don't have an account? <a href="#" class="signup-link">Sign up</a></p>
-                </div>
-            </form>
-        </section>
-    </main>   
+    <main class="login">
+        <form>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username">
+            <br>
+            <style>
+               input[type="password"]::-ms-reveal,
+               input[type="password"]::-webkit-contacts-auto-fill-button,
+               input[type="password"]::-webkit-credentials-auto-fill-button {
+               display: none;
+    }
+            </style>
+            
+            <label for="password">Password:</label>
+    
+            <input type="password" id="password" name="password" placeholder="Enter your password">
+             
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </main>
     
     <footer>
         <p>&copy; 2024 DibAmielle. All rights reserved.</p>
