@@ -1,11 +1,11 @@
-/* Global styles */
+/* Global Styling */
 body, h1, h2, p {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Header styles */
+/* Header Styling */
 header {
     background-color: #333;
     padding: 20px;
@@ -16,7 +16,7 @@ header {
     align-items: center;
 }
 
-/* Navigation bar styles */
+/* Navigation Bar Styling */
 #navbar {
     display: flex;
     justify-content: space-around; 
@@ -47,16 +47,45 @@ main {
     flex-direction: column;
 }
 
-/* Index Page Styles*/
+/* Footer Styling */
+footer {
+  background-color: #333;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Index Page Styling*/
 .about-us {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
   background-color: #ddd;
   padding: 20px;
   margin: 20px;
-  align-items: flex-start; 
-  text-align: left;
+}
+
+
+.about-container {
+  background: #ddd;
+}
+
+.about-para p {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  padding: 20px;
+  margin: 20px;
+}
+
+.customer-reviews {
+  display: flex;
+}
+
+.customer-content {
+  background: #ddd;
+  padding: 20px;
+  margin: 20px;
+  width: 100%;
 }
 
 .shop-now{
@@ -68,20 +97,6 @@ main {
   text-decoration: none;
   text-align: center;
   display: inline-block;
-}
-
-.customer-reviews {
-  background-color: #ddd;
-  padding: 20px;
-  margin: 20px;
-}
-
-/* Footer styles */
-footer {
-  background-color: #333;
-  padding: 10px;
-  text-align: center;
-  color: white;
 }
 
 /* Products Page Styling*/
@@ -185,7 +200,6 @@ button:hover {
   border-radius: 10px;
 }
 
-/* Form Fields Styles */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -201,22 +215,20 @@ input[type="text"],
 input[type="password"] {
   background-color: #fff;
   padding: 10px;
-  margin: 5px 0; /* Updated margin for better spacing */
+  margin: 5px 0; 
   border-radius: 5px;
 }
 
-/* Placeholder Text Styles */
 input::placeholder {
   color: #888;
 }
 
-/* Login Button Styles */
 .loginbutton {
   background-color: #4CAF50;
   padding: 10px;
   border-radius: 5px;
-  margin: 5px 0; /* Updated margin to position the button correctly */
-  width: fit-content; /* Adjust the width based on content */
+  margin: 5px 0; 
+  width: fit-content; 
   opacity: 0.5;
   cursor: pointer;
   transition: background-color 0.3s, opacity 0.3s;
@@ -227,11 +239,10 @@ input::placeholder {
   opacity: 1.0;
 }
 
-/* Signup Link Styles */
 .signup-link a {
   color: #007BFF;
   text-decoration: none;
-  margin: 10px 0; /* Updated margin to position the link correctly */
+  margin: 10px 0;
   transition: color 0.3s;
 }
 
