@@ -1,9 +1,9 @@
 <!--
 =========================================================
-Name : signup.html
-Assignment : ENSF 381 Assignment 3
-Author(s) : Amielle El Makhzoumi (UCID: 30175286) and Diba Jamali (UCID: 30143026)
-Submission : March 11th, 2024
+Name: signup.html
+Assignment: ENSF 381 Assignment 3
+Author(s): Amielle El Makhzoumi (UCID: 30175286) and Diba Jamali (UCID: 30143026)
+Submission: March 11th, 2024
 =========================================================
 -->
 <!DOCTYPE html>
@@ -49,10 +49,6 @@ Submission : March 11th, 2024
         </section>
     </main>
 
-    <div id="messageBoxContainer" style="display: none;">
-        <p id="messageBox"></p>
-    </div>
-
     <script>
         function validate() {
             var username = document.getElementById("username").value;
@@ -66,11 +62,11 @@ Submission : March 11th, 2024
             var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
             var messageBoxContainer = document.getElementById("messageBoxContainer");
-            var messageBox = document.getElementById("messageBox");
+            var messageBox = document.getElementById("message-text");
 
             messageBoxContainer.style.display = "none";
             messageBox.textContent = "";
-            
+
             var count = 0;
             var userMess = "";
             var passMess = "";
@@ -98,13 +94,41 @@ Submission : March 11th, 2024
             }
 
             if(count == 0) {
-                messageBox.textContent = "Sign Up successful!";
+                messageBox.textContent = "Sign up successful!";
             } else {
                 messageBox.innerHTML = userMess + passMess + passConMess + emailMess;
             }
 
             messageBoxContainer.style.display = "block";
         }
+
+        const messageBoxDiv = document.createElement('div');
+
+        messageBoxDiv.id = 'messageBoxContainer';
+        messageBoxDiv.className = 'messageBoxContainer';
+
+        messageBoxDiv.style.display = 'none';
+
+        const messageTextParagraph = document.createElement('p');
+        messageTextParagraph.id = 'message-text';
+
+        messageBoxDiv.appendChild(messageTextParagraph);
+
+        document.body.appendChild(messageBoxDiv);
+
+        const style = document.createElement('style');
+
+        style.textContent = `
+        .messageBoxContainer {
+            border: 2px solid;
+            border-color: #000;
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin: 20px;
+        }
+        `;
+
+        document.head.appendChild(style);
     </script>                 
     <footer>
         <p>&copy; 2024 DibAmielle. All rights reserved.</p>

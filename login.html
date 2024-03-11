@@ -1,9 +1,9 @@
 <!--
 =========================================================
-Name : login.html
-Assignment : ENSF 381 Assignment 3
-Author(s) : Amielle El Makhzoumi (UCID: 30175286) and Diba Jamali (UCID: 30143026)
-Submission : March 11th, 2024
+Name: login.html
+Assignment: ENSF 381 Assignment 3
+Author(s): Amielle El Makhzoumi (UCID: 30175286) and Diba Jamali (UCID: 30143026)
+Submission: March 11th, 2024
 =========================================================
 -->
 <!DOCTYPE html>
@@ -40,10 +40,6 @@ Submission : March 11th, 2024
         </form>
     </main>
 
-    <div id="messageBoxContainer" style="display: none;">
-        <p id="messageBox"></p>
-    </div>
-
     <script>
         function verifyLogin() {
             var usernameEntered = document.getElementById("username").value;
@@ -54,7 +50,7 @@ Submission : March 11th, 2024
                 .then(data => {
                     var users = data.map(user => ({username: user.username, email: user.email }));
                     var match = users.find(user => user.username === usernameEntered && user.email === passwordEntered);
-                    var messageBox = document.getElementById("messageBox");
+                    var messageBox = document.getElementById("message-text");
                     var messageBoxContainer = document.getElementById("messageBoxContainer");
 
                     if (match) {
@@ -66,6 +62,34 @@ Submission : March 11th, 2024
                     messageBoxContainer.style.display = "block";
                 })
         }
+        
+        const messageBoxDiv = document.createElement('div');
+
+        messageBoxDiv.id = 'messageBoxContainer';
+        messageBoxDiv.className = 'messageBoxContainer';
+
+        messageBoxDiv.style.display = 'none';
+
+        const messageTextParagraph = document.createElement('p');
+        messageTextParagraph.id = 'message-text';
+
+        messageBoxDiv.appendChild(messageTextParagraph);
+
+        document.body.appendChild(messageBoxDiv);
+
+        const style = document.createElement('style');
+
+        style.textContent = `
+        .messageBoxContainer {
+            border: 2px solid;
+            border-color: #000;
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin: 20px;
+        }
+        `;
+
+        document.head.appendChild(style);
 
     </script>
 
