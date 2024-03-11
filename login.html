@@ -1,9 +1,9 @@
 <!--
 =========================================================
 Name : login.html
-Assignment : ENSF 381 Assignment 1
+Assignment : ENSF 381 Assignment 3
 Author(s) : Amielle El Makhzoumi (UCID: 30175286) and Diba Jamali (UCID: 30143026)
-Submission : February 26th, 2024
+Submission : March 11th, 2024
 =========================================================
 -->
 <!DOCTYPE html>
@@ -32,23 +32,13 @@ Submission : February 26th, 2024
     <main class="login">
         <form>
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username">
-            <br>
-            <style>
-               input[type="password"]::-ms-reveal,
-               input[type="password"]::-webkit-contacts-auto-fill-button,
-               input[type="password"]::-webkit-credentials-auto-fill-button {
-               display: none;
-    }
-            </style>
-            
+            <input type="text" id="username" name="username" placeholder="Enter your Username">
             <label for="password">Password:</label>
-    
-            <input type="password" id="password" name="password" placeholder="Enter your password">
-             
-            <button type="submit">Login</button>
+            <input type="password" id="password" name="password" placeholder="Enter your Password">    
+            <button onclick="loginCheck()">Login</button>
+            <p >Don't have an account? <a class="signup" href="signup.html">Sign Up</a></p>
         </form>
-        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    
     </main>
     
     <footer>
