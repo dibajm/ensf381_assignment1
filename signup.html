@@ -31,7 +31,7 @@ Submission : March 11th, 2024
 
     <main>
         <section class="login"> 
-            <form action="#" method="post" onsubmit="validateForm(); return false;">
+            <form action="#" method="post" onsubmit="validate(); return false;">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required placeholder="Enter your username">
 
@@ -46,12 +46,14 @@ Submission : March 11th, 2024
             <button type="submit" class="signup-btn">Signup</button>
         </form>
         </section>
-        <div id="messageBox" style="display: none;">
-            <p id="message"></p>
-        </div>
     </main>
+
+    <div id="messageBox" style="display: none;">
+        <p id="message"></p>
+    </div>
+
     <script>
-        function validateForm() {
+        function validate() {
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
             var confirmPassword = document.getElementById("confirm-password").value;
@@ -61,13 +63,16 @@ Submission : March 11th, 2024
             var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             var messageBox = document.getElementById("messageBox");
             var messageText = document.getElementById("message");
+
             messageBox.style.display = "none";
             messageText.textContent = "";
+            
             var count = 0;
             var userMess = "";
             var passMess = "";
             var passConMess = "";
             var emailMess = ""
+
             if (!usernamePattern.test(username)) {
                 userMess = "Invalid username." + "<br>"+ "<br>";
                 count++;

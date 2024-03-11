@@ -30,20 +30,47 @@ Submission : March 11th, 2024
     </div>
 
     <main class="login">
-        <form>
+        <form id="loginForm">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" placeholder="Enter your Username">
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" placeholder="Enter your Password">    
-            <button onclick="loginCheck()">Login</button>
-            <p >Don't have an account? <a class="signup" href="signup.html">Sign Up</a></p>
+            <button type="button" onclick="verifyLogin()">Login</button>
+            <p>Don't have an account? <a class="signup" href="signup.html">Sign Up</a></p>
         </form>
-    
     </main>
-    
+
+    <div id="messageBoxContainer" style="display: none;">
+        <p id="messageBox"></p>
+    </div>
+
+    <script>
+        function verifyLogin() {
+            var usernameEntered = document.getElementById("username").value;
+            var passwordEntered = document.getElementById("password").value;
+
+            fetch('https://jsonplaceholder.typicode.com/users')
+                .then(response => response.json())
+                .then(data => {
+                    var users = data.map(user => ({username: user.username, email: user.email }));
+                    var match = users.find(user => user.username === usernameEntered && user.email === passwordEntered);
+                    var messageBox = document.getElementById("messageBox");
+                    var messageBoxContainer = document.getElementById("messageBoxContainer");
+
+                    if (match) {
+                        messageBox.textContent = "Login successful!";
+                    } else {
+                        messageBox.textContent = "Invalid username or password. Please try again.";
+                    }   
+
+                    messageBoxContainer.style.display = "block";
+                })
+        }
+
+    </script>
+
     <footer>
         <p>&copy; 2024 DibAmielle. All rights reserved.</p>
     </footer>
 </body>
 </html>
-

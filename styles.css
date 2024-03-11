@@ -1,3 +1,12 @@
+/*
+=========================================================
+Name : styles.css
+Assignment : ENSF 381 Assignment 3
+Author(s) : Amielle El Makhzoumi (UCID: 30175286) and Diba Jamali (UCID: 30143026)
+Submission : March 11th, 2024
+=========================================================
+*/
+
 /* Global Styling */
 body, h1, h2, p {
     margin: 0;
@@ -245,4 +254,11 @@ button:hover {
   margin: 0px;
   text-align: center;
   color: white;
+}
+
+#messageBoxContainer {
+  border: 2px solid #000;
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin: 20px;
 }
