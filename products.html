@@ -104,7 +104,65 @@ Submission : March 11th, 2024
             </div>
         </div>
     </main>
-
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+          const cart = {}; 
+          const cartSection = document.createElement('div'); 
+          document.body.insertBefore(cartSection, document.querySelector('footer')); 
+      
+          function updateCartDisplay() {
+            cartSection.innerHTML = ''; 
+            for (const [productName, productDetails] of Object.entries(cart)) {
+              const productDiv = document.createElement('div');
+              productDiv.innerHTML = `
+                <p>Product: ${productName}</p>
+                <p>Price: ${productDetails.price}</p>
+                <p>Quantity: ${productDetails.quantity}</p>
+                <button class="remove-button" data-product="${productName}">Remove</button>
+              `;
+              cartSection.appendChild(productDiv);
+            }
+            const removeButtons = cartSection.querySelectorAll('.remove-button');
+            removeButtons.forEach(button => {
+              button.onclick = removeProduct;
+              button.onmouseover = () => button.style.backgroundColor = '#ff0000';
+              button.onmouseout = () => button.style.backgroundColor = '';
+            });
+          }
+      
+          function addToCart(event) {
+            const productDiv = event.target.parentElement;
+            const productName = productDiv.querySelector('h3').innerText;
+            const productPrice = productDiv.querySelector('p').innerText;
+            const productPriceValue = parseFloat(productPrice.replace('$', ''));
+            if (cart[productName]) {
+              cart[productName].quantity += 1; 
+            } else {
+              cart[productName] = { price: productPriceValue, quantity: 1 }; 
+            }
+            alert(`${productName} has been added to the cart.`);
+            updateCartDisplay();
+          }
+      
+          function removeProduct(event) {
+            const productName = event.target.dataset.product;
+            if (cart[productName].quantity > 1) {
+              cart[productName].quantity -= 1; 
+            } else {
+              delete cart[productName];
+            }
+            updateCartDisplay();
+          } 
+      
+          
+          const addToCartButtons = document.querySelectorAll('.product button');
+          addToCartButtons.forEach(button => {
+            button.addEventListener('click', addToCart);
+          });
+        });
+      </script>
+      
     <footer>
         <p>&copy; 2024 DibAmielle. All rights reserved.</p>
     </footer>
