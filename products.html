@@ -104,13 +104,17 @@ Submission : March 11th, 2024
             </div>
         </div>
     </main>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
           const cart = {}; 
           const cartSection = document.createElement('div'); 
           document.body.insertBefore(cartSection, document.querySelector('footer')); 
       
+
+        cartSection.className = 'cart-section'; // Assign a class for styling
+        cartSection.style.textAlign = 'center'; // Align text in the center of the cart section
+
           function updateCartDisplay() {
             cartSection.innerHTML = ''; 
             for (const [productName, productDetails] of Object.entries(cart)) {
@@ -161,6 +165,8 @@ Submission : March 11th, 2024
             button.addEventListener('click', addToCart);
           });
         });
+
+        
       </script>
       
     <footer>
