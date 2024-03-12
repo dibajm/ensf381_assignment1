@@ -1,11 +1,3 @@
-<!--
-=========================================================
-Name : products.html
-Assignment : ENSF 381 Assignment 3
-Author(s) : Amielle El Makhzoumi (UCID: 30175286) and Diba Jamali (UCID: 30143026)
-Submission : March 11th, 2024
-=========================================================
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,8 +22,7 @@ Submission : March 11th, 2024
     </div>
 
     <main>
-        <div class="product-row"> 
-            <!--All product images were taken from this website: https://www.cleanpng.com/ -->
+        <div class="product-row">
             <!-- Product 1 -->
             <div class="product">
                 <img src="images/product1.png" alt="Product 1" style="width: 100px; height: auto;">
@@ -67,8 +58,8 @@ Submission : March 11th, 2024
                 <button>Add to Cart</button>
             </div>
 
-             <!-- Product 5 -->
-             <div class="product">
+            <!-- Product 5 -->
+            <div class="product">
                 <br>
                 <img src="images/product5.jpeg" alt="Product 4" style="width: 100px; height: auto;">
                 <h3>Crew neck Tee</h3>
@@ -76,8 +67,8 @@ Submission : March 11th, 2024
                 <button>Add to Cart</button>
             </div>
 
-             <!-- Product 6 -->
-             <div class="product">
+            <!-- Product 6 -->
+            <div class="product">
                 <br>
                 <img src="images/product6.jpeg" alt="Product 4" style="width: 100px; height: auto;">
                 <h3>Crewneck Hoodie</h3>
@@ -85,48 +76,57 @@ Submission : March 11th, 2024
                 <button>Add to Cart</button>
             </div>
 
-             <!-- Product 7 -->
-             <div class="product">
+            <!-- Product 7 -->
+            <div class="product">
                 <br>
                 <img src="images/product7.jpeg" alt="Product 4" style="width: 100px; height: auto;">
-                <h3>Crewneck Hoodie</h3>
+                <h3>Sweater</h3>
                 <p>$34.49</p>
                 <button>Add to Cart</button>
             </div>
 
-             <!-- Product 8 -->
-             <div class="product">
+            <!-- Product 8 -->
+            <div class="product">
                 <br>
                 <img src="images/product8.jpeg" alt="Product 4" style="width: 100px; height: auto;">
                 <h3>T-shirt</h3>
                 <p>$19.99</p>
                 <button>Add to Cart</button>
             </div>
+
+            <!-- Shopping Cart Section -->
+            <div id="shopping-cart" class="cart-section">
+                <h2>Shopping Cart</h2>
+            </div>
         </div>
     </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-          const cart = {}; 
-          const cartSection = document.createElement('div'); 
-          document.body.insertBefore(cartSection, document.querySelector('footer')); 
-      
-
-        cartSection.className = 'cart-section'; // Assign a class for styling
-        cartSection.style.textAlign = 'center'; // Align text in the center of the cart section
-
+      document.addEventListener('DOMContentLoaded', (event) => {
+          const cart = {};
+          const cartSection = document.getElementById('shopping-cart');
+    
           function updateCartDisplay() {
-            cartSection.innerHTML = ''; 
+            // Creating a container for the title with inline styles
+            const cartTitleContainer = document.createElement('div');
+            cartTitleContainer.style.backgroundColor = '#ddd'; // Set your desired background color
+            cartTitleContainer.style.padding = '10px';
+            cartTitleContainer.style.textAlign = 'center';
+            cartTitleContainer.innerHTML = '<h2>Shopping Cart</h2>';
+            cartSection.innerHTML = ''; // Clearing the cartSection
+            cartSection.appendChild(cartTitleContainer);
+    
             for (const [productName, productDetails] of Object.entries(cart)) {
               const productDiv = document.createElement('div');
               productDiv.innerHTML = `
-                <p>Product: ${productName}</p>
-                <p>Price: ${productDetails.price}</p>
-                <p>Quantity: ${productDetails.quantity}</p>
-                <button class="remove-button" data-product="${productName}">Remove</button>
+                  <div class="cart-item">
+                    <p style="display: inline-block; margin-right: 10px;">${productName} - $${productDetails.price} - ${productDetails.quantity}</p>
+                    <button class="remove-button" data-product="${productName}" style="display: inline-block;">Remove</button>
+                  </div>
               `;
               cartSection.appendChild(productDiv);
-            }
+            } 
+    
             const removeButtons = cartSection.querySelectorAll('.remove-button');
             removeButtons.forEach(button => {
               button.onclick = removeProduct;
@@ -134,44 +134,45 @@ Submission : March 11th, 2024
               button.onmouseout = () => button.style.backgroundColor = '';
             });
           }
-      
+    
           function addToCart(event) {
-            const productDiv = event.target.parentElement;
-            const productName = productDiv.querySelector('h3').innerText;
-            const productPrice = productDiv.querySelector('p').innerText;
-            const productPriceValue = parseFloat(productPrice.replace('$', ''));
-            if (cart[productName]) {
-              cart[productName].quantity += 1; 
-            } else {
-              cart[productName] = { price: productPriceValue, quantity: 1 }; 
-            }
-            alert(`${productName} has been added to the cart.`);
-            updateCartDisplay();
+              const productDiv = event.target.parentElement;
+              const productName = productDiv.querySelector('h3').innerText;
+              const productPrice = productDiv.querySelector('p').innerText;
+              const productPriceValue = parseFloat(productPrice.replace('$', ''));
+    
+              if (cart[productName]) {
+                  cart[productName].quantity += 1;
+              } else {
+                  cart[productName] = { price: productPriceValue, quantity: 1 };
+              }
+    
+              alert(`${productName} has been added to the cart.`);
+              updateCartDisplay();
           }
-      
+    
           function removeProduct(event) {
-            const productName = event.target.dataset.product;
-            if (cart[productName].quantity > 1) {
-              cart[productName].quantity -= 1; 
-            } else {
-              delete cart[productName];
-            }
-            updateCartDisplay();
-          } 
-      
-          
+              const productName = event.target.dataset.product;
+              if (cart[productName].quantity > 1) {
+                  cart[productName].quantity -= 1;
+              } else {
+                  delete cart[productName];
+              }
+    
+              updateCartDisplay();
+          }
+    
           const addToCartButtons = document.querySelectorAll('.product button');
           addToCartButtons.forEach(button => {
-            button.addEventListener('click', addToCart);
+              button.addEventListener('click', addToCart);
           });
-        });
+      });
+    </script>
+    
 
-        
-      </script>
-      
-    <footer>
-        <p>&copy; 2024 DibAmielle. All rights reserved.</p>
-    </footer>
+<footer>
+  <p>&copy; 2024 DibAmielle. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
-
